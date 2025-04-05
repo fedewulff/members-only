@@ -1,0 +1,12 @@
+<div>
+  <a href="/login">Log in</a>
+  <a href="/becomeMember">Become a member!</a>
+  <% if(user) {%>
+  <a href="/writeMessage">Write a message</a>
+  <% } %>
+</div>
+
+<% if (user) {%>
+<h1>WELCOME BACK <%= user.username %></h1>
+<a href="/logout">LOG OUT</a>
+<% } %>

@@ -1,0 +1,12 @@
+<% if(user) {%>
+
+<form action="/writeMessage" method="post">
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title" />
+  <label for="message">Message</label>
+  <input type="text" name="message" id="message" />
+  <button type="submit">Submit</button>
+</form>
+<% } else { %>
+<p>You are not logged in</p>
+<% } %>

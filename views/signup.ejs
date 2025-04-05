@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+    </style>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div>Sign Up</div>
+    <form action="/signup" method="post">
+      <div>
+        <label for="first_name">First name:</label>
+        <input
+          type="text"
+          name="first_name"
+          id="first_name"
+          class="nameInput"
+          autocomplete="off"
+          minlength="2"
+          maxlength="40"
+          required
+        />
+      </div>
+      <div>
+        <label for="last_name">Last name:</label>
+        <input
+          type="text"
+          name="last_name"
+          id="last_name"
+          class="nameInput"
+          autocomplete="off"
+          minlength="2"
+          maxlength="40"
+          required
+        />
+      </div>
+      <div>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="nameInput"
+          autocomplete="off"
+          minlength="2"
+          maxlength="40"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="nameInput"
+          autocomplete="off"
+          minlength="6"
+          maxlength="40"
+          required
+        />
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm password:</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          class="nameInput"
+          autocomplete="off"
+          minlength="6"
+          maxlength="40"
+          required
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+  <%- include("./partials/formError.ejs") %>
+</html>
