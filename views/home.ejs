@@ -1,12 +1,40 @@
-<div>
-  <a href="/login">Log in</a>
-  <a href="/becomeMember">Become a member!</a>
-  <% if(user) {%>
-  <a href="/writeMessage">Write a message</a>
-  <% } %>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/login">Log in</a>
+      <a href="/becomeMember">Become a member!</a>
+      <% if(user) {%>
+      <a href="/writeMessage">Write a message</a>
+      <% } %>
+      <a href="/logout">LOG OUT</a>
+    </div>
 
-<% if (user) {%>
-<h1>WELCOME BACK <%= user.username %></h1>
-<a href="/logout">LOG OUT</a>
-<% } %>
+    <% if (user) { %>
+    <h1>Hi <%= user.username %></h1>
+
+    <% for( let i = 0; i < messages.length; i++ ) { %>
+    <div></div>
+    <%const dateArray = messages[i].posting_date.toString().split(' ').slice(0, 4);%>
+    <div></div>
+    <% const dateString = `${dateArray[0]} ${dateArray[1]} ${dateArray[2]} ${dateArray[3]}`;%>
+    <div class="messages">
+      <div><%= messages[i].title %></div>
+      <div><%= messages[i].message %></div>
+      <div><%= messages[i].username %></div>
+      <div><%= dateString%></div>
+    </div>
+    <% } %> <%} else {for( let i = 0; i < messages.length; i++ ) { %>
+    <div class="messages">
+      <div><%= messages[i].title %></div>
+      <div><%= messages[i].message %></div>
+    </div>
+    <% } } %>
+  </body>
+</html>

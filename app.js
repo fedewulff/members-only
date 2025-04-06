@@ -11,7 +11,11 @@ const logInRouter = require("./routes/loginRoute");
 const becomeMemberRouter = require("./routes/becomeMemberRoute");
 const logOutRouter = require("./routes/logoutRoute");
 const writeMessageRouter = require("./routes/writeMessageRoute");
+const path = require("node:path");
 // const { argv } = require("node:process");
+const assetsPath = path.join(__dirname, "public");
+
+app.use(express.static(assetsPath));
 
 app.set("view engine", "ejs");
 

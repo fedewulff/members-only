@@ -1,7 +1,9 @@
 const { body, validationResult } = require("express-validator");
 const db = require("../db/queries");
 
-exports.homeGet = (req, res) => {
+exports.homeGet = async (req, res) => {
   //console.log(req.user);
-  res.render("home", { user: req.user });
+  const messages = await db.getMessages();
+
+  res.render("home", { user: req.user, messages: messages });
 };

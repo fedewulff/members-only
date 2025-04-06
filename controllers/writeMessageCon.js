@@ -2,8 +2,6 @@ const { body, validationResult } = require("express-validator");
 const db = require("../db/queries");
 
 exports.writeMessageGet = (req, res) => {
-  console.log(`write message`);
-  console.log(req.user);
   res.render("writeMessage", { user: req.user });
 };
 
@@ -18,7 +16,7 @@ const validateMessage = [
     .trim()
     .notEmpty()
     .withMessage(`Message cannot be empty`)
-    .isLength({ max: 150 })
+    .isLength({ max: 120 })
     .withMessage(`Message cannot have more than 150 characters`),
 ];
 
@@ -31,7 +29,7 @@ exports.writeMessagePost = [
       for (let i = 0; i < errors.array().length; i++) {
         console.error(errors.array()[i].msg);
       }
-      return res.status(400).render("writeMessage", { errors: errors.array() });
+      return res.status(400).render("writeMessage", { user: req.user, errors: errors.array() });
     }
     const member_id = req.user.id;
     const { title, message } = req.body;
